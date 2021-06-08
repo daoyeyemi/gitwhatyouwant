@@ -1,10 +1,20 @@
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      New app, who's this?
-    </div>
+    <Router>
+      <div className="App">
+        {/* <Switch>
+          <Route></Route>
+          <Route></Route>
+          <Route></Route>
+        </Switch> */}
+        New app, who this?
+      </div>
+    </Router>
+
   );
 }
 
