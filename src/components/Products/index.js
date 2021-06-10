@@ -1,25 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-function Product() {
-
-    const products = [
-        {
-            id: 1,
-            name: "Headphones",
-            description: "Some nice ass headphones, Beats by Dre" 
-        },
-        {
-            id: 2,
-            name: "Nike Air Forces",
-            description: "some nice ass air forces"
-        }
-    ]
+function Products() {
+    //  keep in mind wheneever we're mapping through an object or array
+    //  there must be a key assigned to the elements 
 
     return (
         <div>
-
-        </div>
+                    </div>
     )
 }
 
-export default Product;
+export default Products
