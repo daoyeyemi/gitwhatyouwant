@@ -7,7 +7,7 @@ function Navbar() {
     return (
         <>
         {/* fixed means Appbar will */}
-            <AppBar position="static" color="inherit">
+            <AppBar position="fixed" color="inherit">
                 <Toolbar>
                     <Typography>
                         <img src={logo} alt="GitWhatYouWant" height="35px" />

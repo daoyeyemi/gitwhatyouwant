@@ -16,10 +16,10 @@ export const Product = ({ product }) => {
                     <Typography variant="h5" gutterBottom>
                         {product.name}
                     </Typography>
-                    <Typography variant="h5">
+                    <Typography variant="h5" gutterBottom>
                         {product.price}
                     </Typography>
-                    <Typography variant="h2" color="textSecondary">
+                    <Typography variant="body1" color="textSecondary">
                         {product.description}
                     </Typography>
                     <CardActions disableSpacing className={classes.cardActions}>
