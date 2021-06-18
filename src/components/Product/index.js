@@ -1,10 +1,10 @@
-import classes from '*.module.css'
 import React from 'react'
 import { Card, CardMedia, CardContent, Typography, CardActions, IconButton } from "@material-ui/core"
 import { AddShoppingCart } from "@material-ui/icons"
+
 import useStyles from "./styles"
 
-function Product({ product }) {
+function Product( product ) {
     // able to access styles from the styles.js makeStyles function
     const classes = useStyles();
 
@@ -25,7 +25,7 @@ function Product({ product }) {
                         </Typography>
                         <CardActions className={classes.cardActions}>
                             <IconButton>
-                                <AddShoppingCart color="blue" />
+                                <AddShoppingCart color="primary" />
                             </IconButton>
                         </CardActions>
                     </div>
