@@ -2,7 +2,7 @@ import React from 'react'
 // import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from "@material-ui/core"
 import { Grid } from "@material-ui/core"
 import { Product } from "../Product"
-
+import useStyles from "./styles"
 export const Products = () => {
     //  keep in mind wheneever we're mapping through an object or array
     //  there must be a key assigned to the elements 
@@ -12,8 +12,11 @@ export const Products = () => {
         { id: 2, name: "Mac", description: "Cool ass Macintosh laptop", price: "$15" }
     ]
 
+    const classes = useStyles();
+
     return (
-        <>
+        <div className={classes.content}>
+            <div className={classes.toolbar} />
             <Grid container justify="center" spacing={4}>
                 {products.map((product) => (
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
@@ -21,7 +24,7 @@ export const Products = () => {
                     </Grid>
                 ))}
             </Grid>  
-        </>
+        </div>
     )
 }
 
