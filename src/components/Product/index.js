@@ -8,6 +8,8 @@ export const Product = ({ product }) => {
     // able to access styles from the styles.js makeStyles function
     const classes = useStyles();
 
+    return <>test</>
+    
     return (
         <Card className={classes.root}>
             <CardMedia className={classes.media} image="" title={product.name} />
