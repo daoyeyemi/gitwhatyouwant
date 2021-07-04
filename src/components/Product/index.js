@@ -4,25 +4,26 @@ import { AddShoppingCart } from "@material-ui/icons"
 
 import useStyles from "./styles"
 
-export const Product = ({ product }) => {
+export const Product = ({ item }) => {
     // able to access styles from the styles.js makeStyles function
     const classes = useStyles();
-
-    return <>test</>
     
     return (
         <Card className={classes.root}>
-            <CardMedia className={classes.media} image="" title={product.name} />
+            <CardMedia className={classes.media} image={item.media.source} title={item.name} />
             <CardContent>
                 <div className={classes.cardContent}>
                     <Typography variant="h5" gutterBottom>
-                        {product.name}
+                        {item.name}
                     </Typography>
                     <Typography variant="h5" gutterBottom>
-                        {product.price}
+                        {item.formatted_with_symbol}
                     </Typography>
-                    <Typography variant="body1" color="textSecondary">
-                        {product.description}
+                    <Typography 
+                        // took away the <p></p> tags from typography
+                        dangerouslySetInnerHTML={{ __html: item.description }} 
+                        variant="body2" 
+                        color="textSecondary">
                     </Typography>
                     <CardActions disableSpacing className={classes.cardActions}>
                         <IconButton>
