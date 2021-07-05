@@ -1,6 +1,8 @@
-import classes from '*.module.css'
-import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/icons'
-import React from 'react'
+import React, { useState } from 'react'
+import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core'
+import { Link, useHistory } from "react-router-dom"
+import useStyles from "./styles"
+const steps = ["Shipping address", "Payment details"]
 
 const Checkout = () => {
     const [checkoutToken, setCheckoutToken] = useState(null);
