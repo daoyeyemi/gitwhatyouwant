@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useStyles from "./styles";
 import CartItem from "../Cart/CartItem";
 
-export const Cart = ({ cart }) => {
+export const Cart = ({ cart, handleUpdateCart, handleRemoveFromCart, handleEmptyCart }) => {
     const classes = useStyles();
 
     const isEmpty = cart.totalItems === 0;

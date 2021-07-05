@@ -9,6 +9,8 @@ import { commerce } from "./lib/commerce"
 function App() {
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState({});
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
 
   const getItems = async () => {
 
@@ -34,6 +36,45 @@ function App() {
     setCart(product.cart)
   }
 
+  const handleUpdateCart = async (lineItemId, quantity) => {
+    const response = await commerce.cart.update(lineItemId, { quantity });
+
+    setCart(response.cart);
+  };
+
+  const handleRemoveFromCart = async (lineItemId) => {
+    const response = await commerce.cart.remove(lineItemId);
+
+    setCart(response.cart);
+  };
+
+  const handleEmptyCart = async () => {
+    const response = await commerce.cart.empty();
+
+    setCart(response.cart);
+  };
+
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+
+    setCart(newCart)
+  }
+
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
+
+      setOrder(incomingOrder)
+
+      refreshCart()
+
+    } catch (error) {
+
+      setErrorMessage(error.data.error.message)
+    
+    }
+  }
+
 console.log(items);
   
 console.log(cart)
@@ -44,10 +85,10 @@ return (
           <Navbar totalItems={cart.total_items} />
           <Switch>
             <Route exact path="/">
-              <Products items={items} onAddToCart={handleAddToCart} />
+              <Products items={items} onAddToCart={handleAddToCart} handleUpdateCart />
             </Route>
             <Route exact path="/cart">
-              <Cart cart={cart} />
+              <Cart cart={cart} onUpdateCart={handleUpdateCart} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
             </Route>
           </Switch>
         </div>
