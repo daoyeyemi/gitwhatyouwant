@@ -11,6 +11,8 @@ const Checkout = () => {
     const classes = useStyles();
     const history = useHistory();
     
+    const Form = () => (activeStep === 0)
+
     return (
         <>
             <div className={classes.toolbar} />
