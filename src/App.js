@@ -88,8 +88,11 @@ return (
               <Products items={items} onAddToCart={handleAddToCart} handleUpdateCart />
             </Route>
             <Route exact path="/cart">
-              <Cart cart={cart} onUpdateCart={handleUpdateCart} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
+              <Cart cart={cart} handleUpdateCart={handleUpdateCart} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} />
             </Route>
+            {/* <Route>
+              <Checkout exact path="/checkout" />
+            </Route> */}
           </Switch>
         </div>
       </Router>
