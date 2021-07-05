@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Typography, Button, Grid } from "@material-ui/core";
-
+import { Link } from "react-router-dom";
 import useStyles from "./styles";
 import CartItem from "../Cart/CartItem";
 
@@ -12,6 +12,9 @@ export const Cart = ({ cart }) => {
     const EmptyCart = () => (
         <Typography variant="subtitle1">
             Currently, no items in shopping cart.
+            <Link to="/" className={classes.link}>
+                Go back, to add items to cart.
+            </Link>
         </Typography>
     )
 // this for some reason, prevents the app from breaking when error
