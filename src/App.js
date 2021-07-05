@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from "./components/Navbar"
 import { Products } from "./components/Products"
 import { Cart } from "./components/Cart"
+import { CheckoutForm } from "./components/CheckoutForm"
 import { commerce } from "./lib/commerce"
 
 function App() {
@@ -90,9 +91,9 @@ return (
             <Route exact path="/cart">
               <Cart cart={cart} handleUpdateCart={handleUpdateCart} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} />
             </Route>
-            {/* <Route>
-              <Checkout exact path="/checkout" />
-            </Route> */}
+            <Route>
+              <CheckoutForm exact path="/checkout" />
+            </Route>
           </Switch>
         </div>
       </Router>
