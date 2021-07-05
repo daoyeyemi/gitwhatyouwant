@@ -91,8 +91,8 @@ return (
             <Route exact path="/cart">
               <Cart cart={cart} handleUpdateCart={handleUpdateCart} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} />
             </Route>
-            <Route>
-              <CheckoutForm exact path="/checkout" />
+            <Route exact path="/checkout">
+              <CheckoutForm cart={cart} />
             </Route>
           </Switch>
         </div>
