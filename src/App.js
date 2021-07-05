@@ -39,12 +39,19 @@ console.log(items);
 console.log(cart)
 
 return (
-      <div className="App">
-        <Navbar totalItems={cart.total_items} />
-        {/* <Products items={items} onAddToCart={handleAddToCart} /> */}
-        <Cart cart={cart} />
-      </div>
-
+      <Router>
+        <div className="App">
+          <Navbar totalItems={cart.total_items} />
+          <Switch>
+            <Route exact path="/">
+              <Products items={items} onAddToCart={handleAddToCart} />
+            </Route>
+            <Route exact path="/cart">
+              <Cart cart={cart} />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
   );
 }
 
