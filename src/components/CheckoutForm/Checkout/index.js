@@ -21,12 +21,8 @@ const Checkout = () => {
     )
 
     const Form = () => (activeStep === 0)
-        ? <AddressForm checkoutToken={checkoutToken} 
-            // nextStep={nextStep} 
-        />
-        : <PaymentForm checkoutToken={checkoutToken} 
-            // nextStep={nextStep} 
-        />
+        ? <AddressForm />
+        : <PaymentForm />
     
     return (
         <>
