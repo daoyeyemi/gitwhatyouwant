@@ -92,7 +92,7 @@ return (
               <Cart cart={cart} handleUpdateCart={handleUpdateCart} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} />
             </Route>
             <Route exact path="/checkout">
-              <CheckoutForm cart={cart} />
+              <CheckoutForm cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
             </Route>
           </Switch>
         </div>
