@@ -33,9 +33,9 @@ const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptur
               },
             };
             
-        onCaptureCheckout(checkoutToken.id, orderData)
+        onCaptureCheckout(checkoutToken.id, orderData);
     
-        nextStep()
+        nextStep();
         }
     }
 

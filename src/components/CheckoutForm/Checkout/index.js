@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core'
+import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from '@material-ui/core'
 import { Link, useHistory } from "react-router-dom"
 import useStyles from "./styles"
 import AddressForm from "../AddressForm"
@@ -12,6 +12,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [activeStep, setActiveStep] = useState(0);
     const [shippingData, setShippingData] = useState({});
+    const [isFinished, setIsFinished] = useState(false)
     const classes = useStyles();
     const history = useHistory();
       
@@ -24,7 +25,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
                 setCheckoutToken(token);
             } catch (error) {
-
+                history.useState("/")
             }
         }
 
@@ -42,6 +43,13 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         nextStep()
     }
 
+    const timeout = () => {
+        setTimeout(() => {
+            setIsFinished(true)
+            console.log("Timer running")
+        }, 8000)
+    }
+
     let Confirmation = () => ( order.customer ? (
         <>
             <div>
@@ -52,11 +60,21 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             <br />
             <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
         </>
-    ) : (
-        <div className={classes.spinner}>
-            <CircularProgress />
-        </div>
-    ));
+    ) : isFinished ? (
+        <>
+            <div>
+                <Typography variant="h5">Thank you for your purchase</Typography>
+                <Divider className={classes.divider} />
+            </div>
+            <br />
+            <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
+        </>
+        ) : (
+            <div className={classes.spinner}>
+                <CircularProgress />
+            </div>
+        )    
+    );
 
     if (error) {
         Confirmation = () => (
@@ -74,6 +92,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     
     return (
         <>
+            <CssBaseline />
             <div className={classes.toolbar} />
                 <main className={classes.layout}>
                     <Paper className={classes.paper}>
